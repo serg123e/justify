@@ -8,14 +8,16 @@ class String
       actual_len = 0
       output = ""
       words.each do |w|
-        output += w
-        actual_len += w.length
-        if actual_len >= len
-          output += "\n"
-          actual_len = 0
-        else
-          output += " "
+        if (actual_len > 0)
+          if (actual_len + w.length>len)
+            output += "\n"
+            actual_len = 0
+          else
+            output += " "
+          end
         end
+        output += w
+        actual_len += w.length + 1
       end
       return output
     else
