@@ -33,4 +33,7 @@ describe 'justify' do
       expect(test.justify(len).split("\n").map(&:length)[0..-2]).to all be_between(len-IPSUM_MAX_WORDLENGTH, len)
     end
   end
+  it 'keeps punctuation' do
+    expect( "a b, C d! E".justify(5) ).to eq "a b,\nC d!\nE"
+  end
 end
